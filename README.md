@@ -3,11 +3,6 @@
 'Search Cocktails' App created with React Native and Redux
 
 
-### Renaming project: Install React Native Rename Globaly
-
-```
-$ yarn global add react-native-rename
-```
 
 ### Rename the project
 
