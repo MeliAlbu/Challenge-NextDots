@@ -9,6 +9,7 @@ import {
     Image,
     Button
 } from 'react-native';
+import { bold } from 'ansi-colors';
 
 
 type Props = {};
@@ -51,8 +52,13 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 16,
         color: 'white',
+        fontSize:30,
+        marginBottom:20,
+        fontWeight: 'bold'
     },
     searchButton:{
+        
+        
         backgroundColor:'#1E6738',
         borderColor: 'white',
         

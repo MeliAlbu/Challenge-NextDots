@@ -80,7 +80,8 @@ class CocktailFinderScreen extends React.Component<Props> {
             value={value}>
 
             </TextInput>
-          <Button onPress={() => this.resetInputHandler()} title="Reset" />
+          <Button style={styles.resetButton}
+          onPress={() => this.resetInputHandler()} title="Reset" />
         </View>
         {findingcocktails ? (
           <ActivityIndicator size="large" color="#0000ff" />
@@ -113,7 +114,7 @@ const mapDispatchToProps = dispatch =>
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    width: '75%',
+    width: '73%',
     borderColor: 'white',
     marginVertical: 10,
     backgroundColor: 'lightgrey',
@@ -121,9 +122,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderBottomEndRadius: 10,
     paddingLeft: 15,
+    marginRight:4,
 
   },
   SearchBar: {
+    width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white'
@@ -137,8 +140,12 @@ const styles = StyleSheet.create({
   Container: {
     backgroundColor: '#FCA9A5',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
     
+  },
+  resetButton: {
+    
+    marginRight:10,
   }
 });
 
