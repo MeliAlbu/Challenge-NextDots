@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
-import Card from '../components/Card';
+import Card from '../components/card/Card';
 import {searchCocktails, deleteCocktails} from '../store/actionsCocktails';
 
 type Props = {};
