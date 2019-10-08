@@ -10,7 +10,8 @@ import {
   Button,
   Icon,
   ActivityIndicator,
-  Keyboard
+  Keyboard,
+  TouchableWithoutFeedback
 } from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
@@ -67,6 +68,11 @@ class CocktailFinderScreen extends React.Component<Props> {
           ))
         : '';
     return (
+      <TouchableWithoutFeedback onPress ={() => {
+        Keyboard.dismiss();
+      }
+      
+      }>
       <View style= {styles.Container}>
         <View style={styles.SearchBar}>
           <Image
@@ -75,6 +81,7 @@ class CocktailFinderScreen extends React.Component<Props> {
           />
           <TextInput
             style={styles.input}  
+            blurOnSubmit
             keyboardType="default"
             onChange={event => this.TextFilter(event)}
             value={value}>
@@ -91,6 +98,7 @@ class CocktailFinderScreen extends React.Component<Props> {
           </ScrollView>
         )}
       </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -146,6 +154,7 @@ const styles = StyleSheet.create({
   resetButton: {
     
     marginRight:10,
+    
   }
 });
 
