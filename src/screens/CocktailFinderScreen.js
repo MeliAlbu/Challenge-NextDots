@@ -77,7 +77,7 @@ class CocktailFinderScreen extends React.Component<Props> {
         <View style={styles.SearchBar}>
           <Image
             style={styles.SearchLogo}
-            source={require('./searchIcon.png')}
+            source={require('../assets/icons/searchIcon.png')}
           />
           <TextInput
             style={styles.input}  

@@ -23,7 +23,7 @@ export default class HomeScreen extends Component<Props>{
 
                 <Image 
                 style={styles.logo}
-                source={require('./cocktail.png')} />
+                source={require('../assets/icons/cocktail.png')} />
 
                 <Text style={styles.title}>Cocktail finder </Text>
                 <Button style={styles.searchButton} 
