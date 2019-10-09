@@ -1,4 +1,4 @@
-import { OBTUVE_DATOS,DELETE_COCKTAILS, FINDING_DATOS } from "./types";
+import { GET_DATA_SUCCESS ,DELETE_COCKTAILS, FINDING_DATOS } from "./types";
 
 export const deleteCocktails = () =>{
   return  dispatch => {
@@ -19,7 +19,7 @@ dispatch ({type: FINDING_DATOS})
         )
           .then(response => response.json())
           .then(responseJson => {
-            dispatch({type:OBTUVE_DATOS,payload:responseJson.drinks});
+            dispatch({type:GET_DATA_SUCCESS,payload:responseJson.drinks});
           })
           .catch(error => {
             console.error('errrrrrrro', error);

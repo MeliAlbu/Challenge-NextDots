@@ -1,4 +1,4 @@
-import {OBTUVE_DATOS, DELETE_COCKTAILS,FINDING_DATOS} from './types';
+import {GET_DATA_SUCCESS, DELETE_COCKTAILS,FINDING_DATOS} from './types';
 
 const initialState = {
   finding:false,
@@ -10,7 +10,7 @@ const reducer = (state = initialState, action) => {
 
     case "FINDING_DATOS":
       return {...state, finding: true,}
-    case OBTUVE_DATOS:
+    case GET_DATA_SUCCESS:
       return {data: action.payload,finding:false,};
       case "DELETE_COCKTAILS":
         return{data:[]}
