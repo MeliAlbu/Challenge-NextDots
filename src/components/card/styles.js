@@ -20,8 +20,9 @@ const styles = StyleSheet.create({
       color: 'red'
   },
   DrinkImage:  {
-      borderRadius: 400/ 2,
-
+    borderRadius: 10,
+     width: 60,
+     height: 60 
   }
 });
 

@@ -9,7 +9,7 @@ export default class Card extends Component {
             <View style={styles.Card}>
                 <Image style=
                 {styles.DrinkImage}
-                source={{ uri: this.props.urlImage }} style={{ width: 50, height: 50 }} />
+                source={{ uri: this.props.urlImage }} />
                 <Text style={styles.DrinkName}>{this.props.name}</Text>
                 <Text>{this.props.idItem}</Text>
             </View>
