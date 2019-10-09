@@ -17,7 +17,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators, compose} from 'redux';
 import Card from '../components/card/Card';
 import {searchCocktails, deleteCocktails} from '../store/actionsCocktails';
-
+import colors from '../theme/colors';
 type Props = {};
 class CocktailFinderScreen extends React.Component<Props> {
   state = {
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: '73%',
-    borderColor: 'white',
+    borderColor: colors.white,
     marginVertical: 10,
     backgroundColor: 'lightgrey',
     marginLeft: 5,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: colors.white,
   },
 
   SearchLogo: {
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
    marginLeft: 10,
   },
   Container: {
-    backgroundColor: '#FCA9A5',
+    backgroundColor: colors.pink,
     justifyContent: 'center',
     alignItems: 'center',
     

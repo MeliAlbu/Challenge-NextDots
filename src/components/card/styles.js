@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../theme/colors';
 
 const styles = StyleSheet.create({
   Card: {
@@ -7,17 +8,17 @@ const styles = StyleSheet.create({
       justifyContent: 'space-around',
       alignItems: 'center',
       flexDirection: 'row',
-      backgroundColor: 'white',
+      backgroundColor: colors.white,
       marginBottom:10,
       marginVertical: 10,
-      borderColor: 'grey',  
+      borderColor: colors.grey,  
       borderRadius:20
 
   },
 
   DrinkName: {
       flexWrap: 'wrap',
-      color: 'red'
+      color: colors.red
   },
   DrinkImage:  {
     borderRadius: 10,

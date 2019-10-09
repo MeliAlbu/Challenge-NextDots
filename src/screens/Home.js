@@ -10,7 +10,7 @@ import {
     Button
 } from 'react-native';
 import { bold } from 'ansi-colors';
-
+import colors from '../theme/colors';
 
 type Props = {};
 export default class HomeScreen extends Component<Props>{
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FCA9A5'
+        backgroundColor: colors.pink,
   
     },
     logo: {
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         
         
         backgroundColor:'#1E6738',
-        borderColor: 'white',
+        borderColor: colors.white,
         
 
     
