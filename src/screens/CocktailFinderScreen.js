@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -12,50 +12,50 @@ import {
   ActivityIndicator,
   Keyboard,
   TouchableWithoutFeedback
-} from 'react-native';
-import {connect} from 'react-redux';
-import {bindActionCreators, compose} from 'redux';
-import Card from '../components/card/Card';
-import {searchCocktails, deleteCocktails} from '../store/actionsCocktails';
-import colors from '../theme/colors';
+} from "react-native";
+import { connect } from "react-redux";
+import { bindActionCreators, compose } from "redux";
+import Card from "../components/card/Card";
+import { searchCocktails, deleteCocktails } from "../store/actionsCocktails";
+import colors from "../theme/colors";
 type Props = {};
 class CocktailFinderScreen extends React.Component<Props> {
   state = {
-    value: '',
+    value: ""
   };
 
   TextFilter = event => {
-    this.setState({
-      value: event.nativeEvent.text,
-    });
     const text = event.nativeEvent.text;
+
+    this.setState({
+      value: text
+    });
+
     if (text.length >= 3) {
       this.getDrinksFromApi(text);
     } else {
-        const {getCocktailsConnected} = this.props;
-        const {deleteCocktailsConnected} = this.props;
-       deleteCocktailsConnected('')
-    };
+      const { getCocktailsConnected } = this.props;
+      const { deleteCocktailsConnected } = this.props;
+      deleteCocktailsConnected("");
+    }
   };
 
   getDrinksFromApi(text) {
-    const {getCocktailsConnected} = this.props;
+    const { getCocktailsConnected } = this.props;
     getCocktailsConnected(text);
   }
 
   resetInputHandler() {
-    const {deleteCocktailsConnected} = this.props;
+    const { deleteCocktailsConnected } = this.props;
     this.setState({
-      value: '',
+      value: ""
     });
     deleteCocktailsConnected();
-   
-  
-}
+  }
 
   render() {
-    const {value, data} = this.state;
-    const {cocktails, findingcocktails} = this.props;
+    const { value, data } = this.state;
+    const { cocktails, findingcocktails } = this.props;
 
     const renderCard =
       cocktails !== undefined && cocktails !== null
@@ -67,38 +67,40 @@ class CocktailFinderScreen extends React.Component<Props> {
               urlImage={item.strDrinkThumb}
             />
           ))
-        : '';
+        : "";
     return (
-      <TouchableWithoutFeedback onPress ={() => {
-        Keyboard.dismiss();
-      }
-      
-      }>
-      <View style= {styles.Container}>
-        <View style={styles.SearchBar}>
-          <Image
-            style={styles.SearchLogo}
-            source={require('../assets/icons/searchIcon.png')}
-          />
-          <TextInput
-            style={styles.input}  
-            blurOnSubmit
-            keyboardType="default"
-            onChange={event => this.TextFilter(event)}
-            value={value}>
-
-            </TextInput>
-          <Button style={styles.resetButton}
-          onPress={() => this.resetInputHandler()} title="Reset" />
+      <TouchableWithoutFeedback
+        onPress={() => {
+          Keyboard.dismiss();
+        }}
+      >
+        <View style={styles.Container}>
+          <View style={styles.SearchBar}>
+            <Image
+              style={styles.SearchLogo}
+              source={require("../assets/icons/searchIcon.png")}
+            />
+            <TextInput
+              style={styles.input}
+              blurOnSubmit
+              keyboardType="default"
+              onChange={event => this.TextFilter(event)}
+              value={value}
+            ></TextInput>
+            <Button
+              style={styles.resetButton}
+              onPress={() => this.resetInputHandler()}
+              title="Reset"
+            />
+          </View>
+          {findingcocktails ? (
+            <ActivityIndicator size="large" color="#0000ff" />
+          ) : (
+            <ScrollView>
+              {cocktails !== null ? renderCard : <Text> Sin resultados</Text>}
+            </ScrollView>
+          )}
         </View>
-        {findingcocktails ? (
-          <ActivityIndicator size="large" color="#0000ff" />
-        ) : (
-          <ScrollView>
-            {cocktails !== null ? renderCard : <Text> Sin resultados</Text>}
-          </ScrollView>
-        )}
-      </View>
       </TouchableWithoutFeedback>
     );
   }
@@ -107,7 +109,7 @@ class CocktailFinderScreen extends React.Component<Props> {
 function mapStateToProps(state) {
   return {
     cocktails: state.data,
-    findingcocktails: state.finding,
+    findingcocktails: state.finding
   };
 }
 
@@ -115,53 +117,49 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       getCocktailsConnected: searchCocktails,
-      deleteCocktailsConnected: deleteCocktails,
+      deleteCocktailsConnected: deleteCocktails
     },
-    dispatch,
+    dispatch
   );
 
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    width: '73%',
+    width: "73%",
     borderColor: colors.white,
     marginVertical: 10,
-    backgroundColor: 'lightgrey',
+    backgroundColor: "lightgrey",
     marginLeft: 5,
     borderRadius: 10,
     borderBottomEndRadius: 10,
     paddingLeft: 15,
-    marginRight:4,
-
+    marginRight: 4
   },
   SearchBar: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: colors.white,
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: colors.white
   },
 
   SearchLogo: {
     width: 25,
     height: 25,
-   marginLeft: 10,
+    marginLeft: 10
   },
   Container: {
     backgroundColor: colors.pink,
-    justifyContent: 'center',
-    alignItems: 'center',
-    
+    justifyContent: "center",
+    alignItems: "center"
   },
   resetButton: {
-    
-    marginRight:10,
-    
+    marginRight: 10
   }
 });
 
 export default compose(
   connect(
     mapStateToProps,
-    mapDispatchToProps,
-  )(CocktailFinderScreen),
+    mapDispatchToProps
+  )(CocktailFinderScreen)
 );
