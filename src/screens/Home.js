@@ -16,7 +16,7 @@ type Props = {};
 export default class HomeScreen extends Component<Props>{
 
     render() {
-
+const {navigation} = this.props;
         return (
           
             <View style={styles.container}>
@@ -28,7 +28,7 @@ export default class HomeScreen extends Component<Props>{
                 <Text style={styles.title}>Cocktail finder </Text>
                 <Button style={styles.searchButton} 
                 title='Search your Cocktail' 
-                onPress={() => this.props.navigation.navigate('Find')}
+                onPress={() => {navigation.navigate('Find')}}
                 color="#F44336" />
             </View>
            
