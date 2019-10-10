@@ -33,7 +33,8 @@ class CocktailFinderScreen extends React.Component<Props> {
       this.getDrinksFromApi(text);
     } else {
         const {getCocktailsConnected} = this.props;
-       this.props.deleteCocktailsConnected('')
+        const {deleteCocktailsConnected} = this.props;
+       deleteCocktailsConnected('')
     };
   };
 
