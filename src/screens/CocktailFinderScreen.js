@@ -11,13 +11,16 @@ import {
   Icon,
   ActivityIndicator,
   Keyboard,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  FlatList,
 } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators, compose } from "redux";
 import Card from "../components/card/Card";
 import { searchCocktails, deleteCocktails } from "../store/actionsCocktails";
 import colors from "../theme/colors";
+import CocktailList from "../components/cocktaillist/cocktailList";
+
 type Props = {};
 class CocktailFinderScreen extends React.Component<Props> {
   state = {
@@ -56,18 +59,8 @@ class CocktailFinderScreen extends React.Component<Props> {
   render() {
     const { value, data } = this.state;
     const { cocktails, findingcocktails } = this.props;
+    console.log('cocktails', cocktails);
 
-    const renderCard =
-      cocktails !== undefined && cocktails !== null
-        ? cocktails.map((item, index) => (
-            <Card
-              key={index}
-              name={item.strDrink}
-              idItem={item.idDrink}
-              urlImage={item.strDrinkThumb}
-            />
-          ))
-        : "";
     return (
       <TouchableWithoutFeedback
         onPress={() => {
@@ -96,9 +89,17 @@ class CocktailFinderScreen extends React.Component<Props> {
           {findingcocktails ? (
             <ActivityIndicator size="large" color="#0000ff" />
           ) : (
-            <ScrollView>
-              {cocktails !== null ? renderCard : <Text> Sin resultados</Text>}
-            </ScrollView>
+            <FlatList
+              data={cocktails}
+              renderItem={({ item, index }) => (
+                <Card
+                  key={index.toString()}
+                  name={item.strDrink}
+                  urlImage={item.strDrinkThumb}
+                  idItem={item.idDrink}
+                />
+              )}
+            />
           )}
         </View>
       </TouchableWithoutFeedback>

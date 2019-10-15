@@ -11,20 +11,10 @@ export const searchCocktails = (text) => {
       try
       {
      
-dispatch ({type: FINDING_DATOS})
-
-
-        fetch(
-          'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + text,
-        )
-          .then(response => response.json())
-          .then(responseJson => {
-            dispatch({type:GET_DATA_SUCCESS,payload:responseJson.drinks});
-          })
-          .catch(error => {
-            console.error('errrrrrrro', error);
-          });
-
+        dispatch ({type: FINDING_DATOS})
+        const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + text);
+        const responseJson = await response.json();
+        dispatch({type:GET_DATA_SUCCESS,payload:responseJson.drinks});
      
       }
       catch(e)
