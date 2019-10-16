@@ -1,12 +1,13 @@
 import {Stylesheet} from 'react';
+import {responsiveSize} from '../../theme/dimensions';
 
 const styles = StyleSheet.create ({
     input: {
-        height : 30,
+        height : responsiveSize(30),
         width: '70%',
         borderColor: 'white',
-        borderBottomWidth: 15,
-        marginVertical: 10,
+        borderBottomWidth: responsiveSize(15),
+        marginVertical: responsiveSize(10),
         backgroundColor: 'white',
     }
  

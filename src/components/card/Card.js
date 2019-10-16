@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, Image } from 'react-native';
 import styles from './styles';
+import {normalize} from '../../theme/dimensions';
+
 
 export default class Card extends Component {
     render() {

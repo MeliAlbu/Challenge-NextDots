@@ -1,18 +1,19 @@
 import { StyleSheet } from 'react-native';
 import colors from '../../theme/colors';
+import {responsiveSize} from '../../theme/dimensions';
 
 const styles = StyleSheet.create({
   Card: {
-      height: 100,
+      height: responsiveSize(100),
       width: '90%',
       justifyContent: 'space-around',
       alignItems: 'center',
       flexDirection: 'row',
       backgroundColor: colors.white,
-      marginBottom:10,
-      marginVertical: 10,
+      marginBottom:responsiveSize(10),
+      marginVertical: responsiveSize(10),
       borderColor: colors.grey,  
-      borderRadius:20
+      borderRadius:responsiveSize(20)
 
   },
 
@@ -22,8 +23,8 @@ const styles = StyleSheet.create({
   },
   DrinkImage:  {
     borderRadius: 10,
-     width: 60,
-     height: 60 
+     width: responsiveSize(60),
+     height: responsiveSize(60) 
   }
 });
 

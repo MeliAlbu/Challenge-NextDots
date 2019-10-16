@@ -20,6 +20,7 @@ import Card from "../components/card/Card";
 import { searchCocktails, deleteCocktails } from "../store/actionsCocktails";
 import colors from "../theme/colors";
 import CocktailList from "../components/cocktaillist/cocktailList";
+import {responsiveSize} from '../theme/dimensions';
 
 type Props = {};
 class CocktailFinderScreen extends React.Component<Props> {
@@ -125,16 +126,16 @@ const mapDispatchToProps = dispatch =>
 
 const styles = StyleSheet.create({
   input: {
-    height: 40,
+    height: responsiveSize(40),
     width: "73%",
     borderColor: colors.white,
-    marginVertical: 10,
+    marginVertical: responsiveSize(10),
     backgroundColor: "lightgrey",
-    marginLeft: 5,
-    borderRadius: 10,
-    borderBottomEndRadius: 10,
-    paddingLeft: 15,
-    marginRight: 4
+    marginLeft: responsiveSize(5),
+    borderRadius: responsiveSize(10),
+    borderBottomEndRadius: responsiveSize(10),
+    paddingLeft: responsiveSize(15),
+    marginRight: responsiveSize(4)
   },
   SearchBar: {
     width: "100%",
@@ -144,9 +145,9 @@ const styles = StyleSheet.create({
   },
 
   SearchLogo: {
-    width: 25,
-    height: 25,
-    marginLeft: 10
+    width: responsiveSize(25),
+    height: responsiveSize(25),
+    marginLeft: responsiveSize(10)
   },
   Container: {
     backgroundColor: colors.pink,
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   resetButton: {
-    marginRight: 10
+    marginRight: responsiveSize(10)
   }
 });
 
