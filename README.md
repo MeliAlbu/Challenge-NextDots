@@ -1,4 +1,4 @@
-# NextDots React Native Challenge 
+# React Native Challenge 
 
 'Search Cocktails' App created with React Native and Redux
 
